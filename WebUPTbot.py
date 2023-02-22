@@ -1,5 +1,6 @@
 import subprocess, sys, time, requests
 
+#Downloads or imports necessary windows modules
 necessaryImports = ["requests", "telebot"]
 for i in necessaryImports:
     #print(i)
@@ -15,24 +16,27 @@ for i in necessaryImports:
 
 import telegram
 
+
+#Add your bots id, hash and token as a string
 api_id=""
 api_hash=""
 botToken=""
 
+#Add the url you want to check and the specific keyword you want to look for
 url=""
 keyword=""
 
-
+#By default the bot only sends the URL as a message. Replace "<text=url>" line 32 by "<text=THESTRINGOFYOURCHOICE>" if you wish to send something else instead.
 def sendNotif():
     bot=telegram.Bot(token=botToken)
     bot.send_message(chat_id=api_id, text=url)
     return
 
 
-
+#Checks the given URL for the given keyword
 def urlChecker():
     while True:
-        print("Running...")
+        #print("Running...")
         response=requests.get(url)
         if keyword.lower() in response.text.lower():
             print(f"Found {keyword} at {time.strftime('%Y-%m-%d, %H:%M:%S')}")
