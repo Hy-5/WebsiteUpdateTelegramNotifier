@@ -1,1 +1,2 @@
-WIP
+Checks a user-defined website every x seconds (Default 30) and sends a telegram notification through a user-defined bot when a user-defined string is found.
+Useful for example if you are interested in a rare item sold through a marketplace and want to be instantly notified if it's available.
